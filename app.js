@@ -2,12 +2,13 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const test = require('./controllers/testcontroller');
-const user = require('./controllers/usercontroller');
-const authTest = require('./controllers/authtestcontroller')
-const trail = require('./controllers/trailcontroller');
-
 const sequelize = require('./db');
+
+const user = require('./controllers/usercontroller');
+const trail = require('./controllers/trailcontroller');
+const toVisit = require('./controllers/tovisitcontroller');
+const userTrails = require('./controllers/usertrailcontroller');
+
 
 sequelize.sync();
 
@@ -16,14 +17,14 @@ app.use(require('./middleware/headers'))
 
 
 // EXPOSED ROUTES //
-app.use('/test', test); // Leads to our test Routes
 app.use('/user', user); // Leads to our user Routes
+app.use('/trail', trail);
 
 // PROTECTED ROUTES, REQUIRE AUTHORIZATION //
 
 app.use(require('./middleware/validateSession'));
-app.use('/authtest', authTest);
-app.use('/trail', trail);
+app.use('/visit', toVisit);
+app.use('/usertrails', userTrails);
 
 
 

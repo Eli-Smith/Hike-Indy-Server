@@ -4,23 +4,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        distance: {
-            type: DataTypes.INTEGER,
+        park: {
+            type: DataTypes.STRING
         },
-        description: {
-            type: DataTypes.STRING,
+        address: {
+            type: DataTypes.STRING
         },
         difficulty: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
-        rating: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+        length: {
+            type: DataTypes.STRING
         },
-        owner: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        }
     })
 }
