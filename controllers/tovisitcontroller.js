@@ -6,11 +6,13 @@ const VisitModel = sequelize.import('../models/tovisit');
 
 router.post('/add', (req, res) => {
     let trailName = req.body.trailName
+    let address = req.body.address
     let owner = req.user.id
 
     VisitModel
         .create({
             trailName: trailName,
+            address: address,
             owner: owner
         })
         .then(trail => res.status(200).json({

@@ -43,7 +43,6 @@ router.put('/update/:id', (req, res) => {
     let log = req.params.id
 
     let newTrailName = req.body.trailName;
-    let newLength = req.body.length;
     let newDiff = req.body.difficulty;
     let newDesc = req.body.description
     let newRating = req.body.rating
@@ -51,7 +50,6 @@ router.put('/update/:id', (req, res) => {
     UserTrailModel
     .update({
         trailName: newTrailName,
-        length: newLength,
         difficulty: newDiff,
         description: newDesc,
         rating: newRating
